@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <!--包名-->
+	  <PackageId>LeetCode.CommunityToolKit</PackageId>
+	  <!--版本-->
+	  <Version>1.0.0</Version>
+	  <!--作者-->
+	  <Authors>wuhailong</Authors>
+	  <!--公司-->
+	  <Company>personal</Company>
+	  <!--生成自动构建-->
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageProjectUrl>https://github.com/huzuohuyou/ApiConventions.CommunityToolKit</PackageProjectUrl>
+	  <Description>
+		  LeetCode C#刷算法题快速工具包 1、帮助您在编写算法是不必自己创建TreeNode类、Node类、ListNode类；
+	  </Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+</Project>
