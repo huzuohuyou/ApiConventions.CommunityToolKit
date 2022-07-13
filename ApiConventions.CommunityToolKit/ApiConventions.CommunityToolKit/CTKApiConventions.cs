@@ -1,4 +1,5 @@
 ﻿using ApiConventions.CommunityToolKit.Models;
+using ApiConventions.CommunityToolKit.ObjectResults;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
@@ -12,11 +13,10 @@ namespace ApiConventions.CommunityToolKit
         /// 单一实体查询
         /// </summary>
         /// <param name="id"></param>
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Status200Response<Object>))]
-        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Status40xResponse))]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(Status40xResponse))]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(Status500Response))]
-        [ProducesDefaultResponseType( typeof(Status40xResponse))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResultModel))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ValidationFailedResultModel))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ValidationFailedResult))]
+        [ProducesDefaultResponseType( typeof(BaseResultModel))]
         [ApiConventionNameMatch(ApiConventionNameMatchBehavior.Prefix)]
         public static void Get(
             [ApiConventionNameMatch(ApiConventionNameMatchBehavior.Suffix)]

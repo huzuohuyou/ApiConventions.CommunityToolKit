@@ -7,10 +7,10 @@ namespace ApiConventions.CommunityToolKit
     {
         [NonAction]
         public override OkObjectResult Ok( object? value)
-            => new OkObjectResult(new Status200Response<object>()
+            => new OkObjectResult(new BaseResultModel()
             {
                 Message = "OK",
-                Data =value
+                Result = value
             });
     }
 }

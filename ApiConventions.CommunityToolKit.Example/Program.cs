@@ -1,4 +1,4 @@
-using Microsoft.OpenApi.Models;
+using ApiConventions.CommunityToolKit.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +18,12 @@ builder.Services.AddSwaggerGen(c =>
     var xmlPath = Path.Combine(basePath, $@"{builder.Environment.ApplicationName}.xml");
     c.IncludeXmlComments(xmlPath, true);
 });
-
+builder.Services.AddMvc(options =>
+{
+    options.Filters.Add<ApiResultFilterAttribute>();
+    options.Filters.Add<ValidateModelAttribute>();
+    options.Filters.Add<CustomExceptionAttribute>();
+});
 
 var app = builder.Build();
 
