@@ -1,5 +1,3 @@
-using ApiConventions.CommunityToolKit.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiConventions.CommunityToolKit.Example.Controllers
@@ -7,6 +5,7 @@ namespace ApiConventions.CommunityToolKit.Example.Controllers
     [ApiController]
     [Route("[controller]")]
     [ApiConventionType(typeof(CtkApiConventions))]
+    [Produces("application/json")]
     public class WeatherForecastController : CtkControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -63,9 +62,9 @@ namespace ApiConventions.CommunityToolKit.Example.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}", Name = "GetById")]
-        public WeatherForecast Get(string id)
+        public WeatherForecast Get(int id)
         {
-            //throw new Exception("a");
+            throw new Exception("a");
             return new WeatherForecast() { Date = DateTime.Now, TemperatureC = 100 };
         }
 

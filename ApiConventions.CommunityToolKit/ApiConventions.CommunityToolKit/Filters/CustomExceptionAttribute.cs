@@ -1,7 +1,6 @@
-﻿using ApiConventions.CommunityToolKit.Models;
+﻿using ApiConventions.CommunityToolKit.ObjectResults;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
-using ApiConventions.CommunityToolKit.ObjectResults;
 
 namespace ApiConventions.CommunityToolKit.Filters
 {

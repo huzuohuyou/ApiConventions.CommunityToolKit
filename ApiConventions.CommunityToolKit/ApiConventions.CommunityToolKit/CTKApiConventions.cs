@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace ApiConventions.CommunityToolKit
 {
+    [Produces("application/json")]
     public static class CtkApiConventions
     {
         #region GET
@@ -15,7 +16,7 @@ namespace ApiConventions.CommunityToolKit
         /// <param name="id"></param>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResultModel))]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ValidationFailedResultModel))]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ValidationFailedResult))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(CustomExceptionResultModel))]
         [ProducesDefaultResponseType( typeof(BaseResultModel))]
         [ApiConventionNameMatch(ApiConventionNameMatchBehavior.Prefix)]
         public static void Get(

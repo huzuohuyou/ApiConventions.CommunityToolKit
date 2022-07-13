@@ -1,5 +1,4 @@
-﻿using ApiConventions.CommunityToolKit.Models;
-using ApiConventions.CommunityToolKit.ObjectResults;
+﻿using ApiConventions.CommunityToolKit.ObjectResults;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
 
