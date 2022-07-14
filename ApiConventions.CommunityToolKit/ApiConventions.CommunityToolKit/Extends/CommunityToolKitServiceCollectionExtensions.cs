@@ -1,4 +1,5 @@
-﻿using ApiConventions.CommunityToolKit.Filters;
+﻿using System.Reflection;
+using ApiConventions.CommunityToolKit.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -32,20 +33,35 @@ namespace ApiConventions.CommunityToolKit.Extends
         /// <param name="serviceCollection"></param>
         /// <param name="builder"></param>
         /// <returns></returns>
-        public static IServiceCollection AddSwaggerGenCommunityToolKitFilter(this IServiceCollection serviceCollection, WebApplicationBuilder builder)
+        public static IServiceCollection AddSwaggerGenCommunityToolKitFilter(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new()
                 {
-                    Title = builder.Environment.ApplicationName,
+                    Title = Assembly.GetExecutingAssembly().GetName().Name,
                     Version = "v1",
                 });
-                var basePath = AppContext.BaseDirectory;
-                var xmlPath = Path.Combine(basePath, $@"{builder.Environment.ApplicationName}.xml");
-                c.IncludeXmlComments(xmlPath, true);
+                foreach (var item in XmlCommentsFilePath)
+                {
+                    c.IncludeXmlComments(item);
+                }
             });
             return serviceCollection;
         }
+
+        private static List<string> XmlCommentsFilePath
+        {
+            get
+            {
+                var basePath = AppContext.BaseDirectory;
+                var d = new DirectoryInfo(basePath);
+                var files = d.GetFiles("*.xml");
+                var configXml = files.Select(a => Path.Combine(basePath, a.FullName)).ToList();
+                return configXml;
+            }
+        }
+
+        
     }
 }
