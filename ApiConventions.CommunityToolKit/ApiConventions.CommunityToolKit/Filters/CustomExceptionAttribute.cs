@@ -4,7 +4,7 @@ using System.Net;
 
 namespace ApiConventions.CommunityToolKit.Filters
 {
-    public class CustomExceptionAttribute : IExceptionFilter
+    public class CustomException : IExceptionFilter
     {
         public void OnException(ExceptionContext context)
         {

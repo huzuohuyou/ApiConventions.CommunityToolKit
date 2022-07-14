@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace ApiConventions.CommunityToolKit.Filters
 {
-    public class ApiResultFilterAttribute : ActionFilterAttribute
+    public class ApiResultFilter : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {

@@ -1,3 +1,4 @@
+using ApiConventions.CommunityToolKit.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiConventions.CommunityToolKit.Example.Controllers
@@ -64,7 +65,7 @@ namespace ApiConventions.CommunityToolKit.Example.Controllers
         [HttpGet("{id}", Name = "GetById")]
         public WeatherForecast Get(int id)
         {
-            throw new Exception("a");
+            throw new HttpResponseException(400,"a");
             return new WeatherForecast() { Date = DateTime.Now, TemperatureC = 100 };
         }
 

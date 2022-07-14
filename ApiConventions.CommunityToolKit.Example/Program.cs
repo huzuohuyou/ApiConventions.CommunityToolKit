@@ -1,4 +1,4 @@
-using ApiConventions.CommunityToolKit.Filters;
+using ApiConventions.CommunityToolKit.Extends;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,23 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new()
-    {
-        Title = builder.Environment.ApplicationName,
-        Version = "v1",
-    });
-    var basePath = AppContext.BaseDirectory;
-    var xmlPath = Path.Combine(basePath, $@"{builder.Environment.ApplicationName}.xml");
-    c.IncludeXmlComments(xmlPath, true);
-});
-builder.Services.AddMvc(options =>
-{
-    options.Filters.Add<ApiResultFilterAttribute>();
-    options.Filters.Add<ValidateModelAttribute>();
-    options.Filters.Add<CustomExceptionAttribute>();
-});
+
+builder.Services.AddSwaggerGenCommunityToolKitFilter(builder);
+
+builder.Services.AddResponseResultCommunityToolKitFilter();
 
 var app = builder.Build();
 

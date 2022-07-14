@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace ApiConventions.CommunityToolKit.Filters
 {
-    public class ValidateModelAttribute : ActionFilterAttribute
+    public class ValidateModelFilter : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
