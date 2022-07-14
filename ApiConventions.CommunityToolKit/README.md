@@ -1,10 +1,11 @@
 # ApiConventions.CommunityToolKit社区工具包
-ApiConventions.CommunityToolKit API声明工具包 
+ApiConventions.CommunityToolKit API社区工具包 
 1. 帮助您规范编写API;
 2. 简化API返回类型声明；
 3. 统一返回结果封装；
 4. 参数校验；
 5. 自定义异常捕捉；
+
 ## 发行版本说明
 
 |版本|内容|
