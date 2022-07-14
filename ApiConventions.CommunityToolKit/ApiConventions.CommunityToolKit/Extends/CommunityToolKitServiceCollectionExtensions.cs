@@ -15,7 +15,7 @@ namespace ApiConventions.CommunityToolKit.Extends
         /// </summary>
         /// <param name="serviceCollection"></param>
         /// <returns></returns>
-        public static IServiceCollection AddResponseResultCommunityToolKitFilter(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddResponseResultSetUp(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddMvcCore(options =>
             {
@@ -33,7 +33,7 @@ namespace ApiConventions.CommunityToolKit.Extends
         /// <param name="serviceCollection"></param>
         /// <param name="builder"></param>
         /// <returns></returns>
-        public static IServiceCollection AddSwaggerGenCommunityToolKitFilter(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddSwaggerGenSetUp(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddSwaggerGen(c =>
             {
